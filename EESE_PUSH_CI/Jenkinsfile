@@ -6,31 +6,31 @@ pipeline{
 	stages {
 		stage ('Version/Release Notes') {
 			steps {
-				sh "echo 'Get Version and Release notes'"
+				sh "../steps/ReleaseNotesVersion.sh" 
 			}
 		}
             
 		stage ('Merge source branch') {
 			steps {
-				sh "echo 'task to merge the branch'"
+				sh "../steps/Merge.sh"
 			}
 		}
 		
 		stage ('Static Checks') {
 				steps {
-					sh "echo 'Tasks for static checks'"
+					sh "../steps/StatiChecks.sh"
 				}
 		}
 		
 		stage ('Build'){
 				steps {
-					sh "echo 'Task to build'"
+					sh "../steps/Build.sh"
 				}
 		}
 		
 		stage ('Unit Test') {
 				steps {
-					sh "echo 'Task to do Unit Test'"
+					sh "../steps/unitTest.sh"
 				}
 		}
 	}
