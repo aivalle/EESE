@@ -7,31 +7,31 @@ pipeline{
 		stage ('Version/Release Notes') {
 			steps {
 				sh "ls -l; pwd"
-				sh "../steps/ReleaseNotesVersion.sh" 
+				sh "steps/ReleaseNotesVersion.sh" 
 			}
 		}
             
 		stage ('Merge source branch') {
 			steps {
-				sh "../steps/Merge.sh"
+				sh "steps/Merge.sh"
 			}
 		}
 		
 		stage ('Static Checks') {
 				steps {
-					sh "../steps/StatiChecks.sh"
+					sh "steps/StatiChecks.sh"
 				}
 		}
 		
 		stage ('Build'){
 				steps {
-					sh "../steps/Build.sh"
+					sh "steps/Build.sh"
 				}
 		}
 		
 		stage ('Unit Test') {
 				steps {
-					sh "../steps/unitTest.sh"
+					sh "steps/unitTest.sh"
 				}
 		}
 	}
