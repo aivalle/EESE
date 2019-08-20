@@ -6,6 +6,7 @@ pipeline{
 	stages {
 		stage ('Version/Release Notes') {
 			steps {
+				sh "la -l; pwd"
 				sh "../steps/ReleaseNotesVersion.sh" 
 			}
 		}
